@@ -9,12 +9,20 @@ const PostItem = ({ post }) => {
     yaer: "numeric",
   });
   const imagePath = `/images/posts/${slug}/${image}`;
+  console.log(imagePath);
+  const linkPath = `/posts/${slug}`;
   return (
     <li className={classess.post}>
-      <Link>
+      <Link href={linkPath}>
         <a>
           <div className={classess.image}>
-            <Image src={imagePath} alt={title} width={300} height={200} />
+            <Image
+              src={imagePath}
+              alt={title}
+              width={300}
+              height={200}
+              layout="responsive"
+            />
           </div>
           <div className={classess.content}>
             <h3>{title}</h3>
