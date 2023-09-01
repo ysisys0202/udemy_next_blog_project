@@ -1,7 +1,16 @@
 import React from "react";
-
-const PostaPage = () => {
-  return <div></div>;
+import AllPosts from "../../components/posts/AllPosts";
+import { getAllPosts } from "../../lib/posts-util";
+const AllPostsPage = ({ posts }) => {
+  return <AllPosts posts={posts} />;
 };
 
-export default PostaPage;
+export function getStaticProps() {
+  const allPosts = getAllPosts();
+  return {
+    props: {
+      posts: allPosts,
+    },
+  };
+}
+export default AllPostsPage;
