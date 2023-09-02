@@ -4,7 +4,6 @@ import classes from "./PostContent.module.css";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 const PostContent = ({ post }) => {
   const imagePath = `/images/posts/${post.slug}/${post.image}`;
   const customComponents = {
@@ -29,9 +28,7 @@ const PostContent = ({ post }) => {
     code(code) {
       const { language, children } = code;
       return (
-        <SyntaxHighlighter language={language} style={monokai}>
-          {children}
-        </SyntaxHighlighter>
+        <SyntaxHighlighter language={language}>{children}</SyntaxHighlighter>
       );
     },
   };
